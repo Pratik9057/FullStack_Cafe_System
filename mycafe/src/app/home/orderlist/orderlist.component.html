@@ -1,0 +1,26 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">itemName</th>
+            <th scope="col">quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Cust_Id</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of order">
+            <td>{{ user.id }}</td>
+            <td>{{ user.itemName }}</td>
+            <td>{{ user.quantity }}</td>
+            <td>{{ user.price }}</td>
+            <td>{{ user.cust_Id }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  

@@ -1,0 +1,58 @@
+<div class="card my-5">
+    <div class="card-body">
+        <form  #userForm="ngForm">
+            <div class="form-group">
+                <label for="name">Menu</label>
+
+                <select (change)="onDoctorSelect($event)" class="custom-select mb-3" id="itemname">
+                    <option value="">Choose order</option>
+                    <option  *ngFor="let user1 of menus" [value]="user1.itemName">
+                        {{ user1.itemName }}
+                    </option>
+                </select>
+            </div>
+<!--            <div class="form-group">
+                <label for="pname">Name Of Patient</label>
+
+                <select class="custom-select mb-3" id="pname" (change)="onPatientSelect($event)">
+                    <option value="">Choose patient</option>
+                    <option *ngFor="let p of patients" [value]="p.pname">
+                        {{ p.pname }}</option>
+                </select>
+            </div>-->
+            <div class="form-group">
+                <label for="name">Item Name</label>
+                <input type="text" [(ngModel)]="order.itemName" 
+                  class="form-control" 
+                  id="name" 
+                  name="name" 
+                  placeholder="Enter Item name"
+                  required #name="ngModel">
+              </div>
+              <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" [(ngModel)]="order.price" 
+                  class="form-control" 
+                  id="price" 
+                  name="price" 
+                  placeholder="Enter Price"
+                  required #price="ngModel">
+                <div [hidden]="!price.pristine" class="alert alert-danger">price is required</div>
+              </div>
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="text" [(ngModel)]="order.quantity" 
+                  class="form-control" 
+                  id="quantity" 
+                  name="quantity" 
+                  placeholder="Enter quantity"
+                  required #quantity="ngModel">
+                <div [hidden]="!quantity.pristine" class="alert alert-danger">quantity is required</div>
+              </div>
+              
+            <button type="submit" (click)="onSubmit()"
+          class="btn btn-info">Submit</button>
+        </form>
+    </div>
+</div>
